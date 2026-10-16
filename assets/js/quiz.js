@@ -454,6 +454,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const percentage = Math.round((finalScore / totalQuestions) * 100);
 
+        // Save to localStorage for static hosting (GitHub Pages / Netlify)
+        try {
+            const history = JSON.parse(localStorage.getItem('cybersafe_quiz_history') || '[]');
+            history.push({
+                score: finalScore,
+                total: totalQuestions,
+                percentage: percentage,
+                date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+            });
+            localStorage.setItem('cybersafe_quiz_history', JSON.stringify(history));
+        } catch (e) {}
+
         // Switch to Results Screen
         quizActiveArea.style.display = 'none';
         quizResultsScreen.style.display = 'block';

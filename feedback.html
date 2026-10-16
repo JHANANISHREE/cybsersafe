@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact and Educational Feedback Form for CyberSafe Portal.">
+    <title>Contact &amp; Feedback — Security Inquiries | CyberSafe</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="navbar" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand" aria-label="CyberSafe Home">
+                <div class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.11v4.71c0 4.54-3.14 8.78-7 9.87-3.86-1.09-7-5.33-7-9.87V6.29l7-3.11zM11 7h2v6h-2V7zm0 8h2v2h-2v-2z"/>
+                    </svg>
+                </div>
+                <div class="brand-text">Cyber<span>Safe</span></div>
+            </a>
+
+            <nav role="navigation" aria-label="Primary Navigation">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="learn.html" class="nav-link">Learning Center</a></li>
+                    <li><a href="simulator.html" class="nav-link">Phishing Simulator</a></li>
+                    <li><a href="quiz.html" class="nav-link">Cyber Quiz</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="feedback.html" class="nav-link active">Feedback</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="nav-user-pill">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>Student Explorer</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" id="mainContent" role="main">
+        <div class="container form-wrap">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">Community Input</span>
+                <h1>Contact &amp; Educational Feedback</h1>
+                <p class="lead">
+                    Have a question, discovered a suspicious email pattern you want added to our simulator, or found an issue? Send us your feedback below.
+                </p>
+            </div>
+
+            <div id="feedbackAlertContainer"></div>
+
+            <div class="card">
+                <form id="staticFeedbackForm" novalidate>
+                    <div class="form-group">
+                        <label for="inputName" class="form-label">Full Name <span class="required">*</span></label>
+                        <input type="text" id="inputName" class="form-control" placeholder="e.g. Alex Johnson" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail" class="form-label">Email Address <span class="required">*</span></label>
+                        <input type="email" id="inputEmail" class="form-control" placeholder="student@rajalakshmi.edu.in" required>
+                        <div class="form-helper">We will never expose your email publicly or send marketing spam.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputCategory" class="form-label">Feedback Category <span class="required">*</span></label>
+                        <select id="inputCategory" class="form-control" required>
+                            <option value="general">General Inquiries &amp; Questions</option>
+                            <option value="phishing_scenario">Suggest a New Phishing Scenario</option>
+                            <option value="course_suggestion">Learning Curriculum Suggestion</option>
+                            <option value="quiz_feedback">Quiz Question Clarification</option>
+                            <option value="technical_bug">Report a Portal Bug / Glitch</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputMessage" class="form-label">Detailed Message <span class="required">*</span></label>
+                        <textarea id="inputMessage" class="form-control" rows="5" placeholder="Share your experience, recommendations, or question..." required></textarea>
+                        <div class="form-helper">Minimum 10 characters. Form is secured against Cross-Site Scripting (XSS).</div>
+                    </div>
+
+                    <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
+                        <button type="reset" class="btn btn-outline">Clear Form</button>
+                        <button type="submit" class="btn btn-primary" id="btnSubmitFeedback">
+                            <span aria-hidden="true">📤</span> Submit Feedback
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div>&copy; 2026 CyberSafe Project. College Web Programming &amp; Cybersecurity Portal.</div>
+                <div>Built with <strong>HTML5 &bull; CSS3 &bull; Vanilla JavaScript</strong></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('staticFeedbackForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('inputName').value.trim();
+            const email = document.getElementById('inputEmail').value.trim();
+            const category = document.getElementById('inputCategory').value;
+            const message = document.getElementById('inputMessage').value.trim();
+            const alertBox = document.getElementById('feedbackAlertContainer');
+
+            const errors = [];
+            if (name.length < 2) errors.push('Please enter a valid full name (minimum 2 characters).');
+            if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) errors.push('Please provide a valid email address.');
+            if (message.length < 10) errors.push('Your message must be at least 10 characters long.');
+
+            if (errors.length > 0) {
+                alertBox.innerHTML = `
+                    <div class="alert alert-danger" role="alert">
+                        <span style="font-size: 1.25rem;">⚠️</span>
+                        <div>
+                            <strong>Please resolve the following:</strong>
+                            <ul style="margin: 0.4rem 0 0 1.25rem; font-size: 0.9rem;">
+                                ${errors.map(err => `<li>${err}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Save locally
+                const submission = { name, email, category, message, date: new Date().toLocaleString() };
+                try {
+                    const existing = JSON.parse(localStorage.getItem('cybersafe_feedback_log') || '[]');
+                    existing.push(submission);
+                    localStorage.setItem('cybersafe_feedback_log', JSON.stringify(existing));
+                } catch (e) {}
+
+                alertBox.innerHTML = `
+                    <div class="alert alert-success" role="alert">
+                        <span style="font-size: 1.25rem;">✅</span>
+                        <div>Thank you, <strong>${name}</strong>! Your feedback was successfully recorded.</div>
+                    </div>
+                `;
+
+                document.getElementById('staticFeedbackForm').reset();
+                showToast('Feedback submitted successfully!', 'success');
+            }
+        });
+    </script>
+</body>
+</html>

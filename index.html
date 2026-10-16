@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CyberSafe is an interactive cybersecurity education portal designed to train students in identifying phishing attacks, understanding malware, and testing security knowledge.">
+    <title>Home — Cybersecurity Education Portal | CyberSafe</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Accessible Navigation Bar -->
+    <header class="navbar" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand" aria-label="CyberSafe Home">
+                <div class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.11v4.71c0 4.54-3.14 8.78-7 9.87-3.86-1.09-7-5.33-7-9.87V6.29l7-3.11zM11 7h2v6h-2V7zm0 8h2v2h-2v-2z"/>
+                    </svg>
+                </div>
+                <div class="brand-text">Cyber<span>Safe</span></div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav role="navigation" aria-label="Primary Navigation">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="learn.html" class="nav-link">Learning Center</a></li>
+                    <li><a href="simulator.html" class="nav-link">Phishing Simulator</a></li>
+                    <li><a href="quiz.html" class="nav-link">Cyber Quiz</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+                </ul>
+            </nav>
+
+            <!-- Navigation Actions / Student Status -->
+            <div class="nav-actions">
+                <div class="nav-user-pill" title="Active Student Session">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span id="navUsername">Student Explorer</span>
+                </div>
+                <a href="dashboard.html" class="btn btn-outline btn-sm">My Dashboard</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    &#9776;
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area Starts -->
+    <main class="main-content" id="mainContent" role="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-pill">
+                    <span aria-hidden="true">🛡️</span> Interactive Defensive Security Training
+                </div>
+                <h1>
+                    Master Cybersecurity Defense.<br>
+                    <span class="hero-highlight">Detect Phishing Before It Strikes.</span>
+                </h1>
+                <p>
+                    CyberSafe is an interactive portal built for college students. Learn how cybercriminals exploit human psychology, inspect realistic simulated phishing emails safely, and evaluate your knowledge with real-time feedback.
+                </p>
+                <div class="hero-actions">
+                    <a href="learn.html" class="btn btn-primary btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l-5.5 9h11zM3 13.5h18v7H3z"/>
+                        </svg>
+                        Start Learning
+                    </a>
+                    <a href="simulator.html" class="btn btn-outline btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                        </svg>
+                        Launch Phishing Simulator
+                    </a>
+                    <a href="quiz.html" class="btn btn-success btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                        Take Cyber Quiz
+                    </a>
+                </div>
+
+                <!-- Platform Metrics -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value cyan">6</div>
+                        <div class="stat-label">Core Modules</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value green" id="statCompletedModules">6</div>
+                        <div class="stat-label">Curated Topics</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value cyan">15</div>
+                        <div class="stat-label">Exam Practice MCQs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value amber">5</div>
+                        <div class="stat-label">Simulated Scenarios</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Pillars Section -->
+        <section class="section" style="background-color: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Essential Cybersecurity Pillars</h2>
+                    <p>Understand the most frequent attack vectors targeted at college students and developers.</p>
+                </div>
+
+                <div class="features-grid">
+                    <!-- Pillar 1 -->
+                    <article class="card card-glow-cyan">
+                        <div class="card-header">
+                            <div class="card-icon red">📧</div>
+                            <span class="badge badge-red">Critical Threat</span>
+                        </div>
+                        <h3>Phishing &amp; Email Spoofing</h3>
+                        <p>
+                            Deceptive messages disguised as legitimate communications designed to trick users into handing over credentials, clicking malicious links, or sharing sensitive personal data.
+                        </p>
+                        <div style="margin-top: 1rem;">
+                            <a href="learn.html#topic-phishing" class="btn btn-outline btn-sm">Read Module &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Pillar 2 -->
+                    <article class="card card-glow-cyan">
+                        <div class="card-header">
+                            <div class="card-icon amber">🦠</div>
+                            <span class="badge badge-amber">System Defense</span>
+                        </div>
+                        <h3>Malware &amp; Ransomware</h3>
+                        <p>
+                            Malicious programs such as trojans, keyloggers, and ransomware that compromise operating systems, log keystrokes, and encrypt personal project files for extortion.
+                        </p>
+                        <div style="margin-top: 1rem;">
+                            <a href="learn.html#topic-malware" class="btn btn-outline btn-sm">Read Module &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Pillar 3 -->
+                    <article class="card card-glow-green">
+                        <div class="card-header">
+                            <div class="card-icon green">🔑</div>
+                            <span class="badge badge-green">Credential Hygiene</span>
+                        </div>
+                        <h3>Password Security &amp; MFA</h3>
+                        <p>
+                            Why simple passwords succumb to brute-force and credential stuffing attacks in seconds, and how Multi-Factor Authentication (MFA) blocks up to 99% of automated account takeovers.
+                        </p>
+                        <div style="margin-top: 1rem;">
+                            <a href="learn.html#topic-passwords" class="btn btn-outline btn-sm">Read Module &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Pillar 4 -->
+                    <article class="card card-glow-cyan">
+                        <div class="card-header">
+                            <div class="card-icon cyan">🎭</div>
+                            <span class="badge badge-cyan">Human Factor</span>
+                        </div>
+                        <h3>Social Engineering</h3>
+                        <p>
+                            The art of manipulating individuals into breaking standard security procedures by exploiting cognitive biases, fear of missing out, urgency, and misplaced trust.
+                        </p>
+                        <div style="margin-top: 1rem;">
+                            <a href="learn.html#topic-social-eng" class="btn btn-outline btn-sm">Read Module &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Simulator Spotlight -->
+        <section class="section">
+            <div class="container">
+                <div class="card" style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.08), rgba(16, 185, 129, 0.08)), var(--bg-card); border-color: rgba(0, 242, 254, 0.3); padding: 3rem 2rem; text-align: center;">
+                    <span class="badge badge-cyan" style="margin-bottom: 1rem;">Hands-on Interactive Lab</span>
+                    <h2 style="margin-bottom: 1rem;">Can You Spot The Hidden Traps?</h2>
+                    <p style="max-width: 650px; margin: 0 auto 2rem auto;">
+                        Don't just read about cybersecurity theory. Open our interactive simulated email client, hover over disguised hyperlinks, inspect spoofed header addresses, and practice spotting red flags in a completely safe sandbox.
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="simulator.html" class="btn btn-primary btn-lg">Open Phishing Simulator</a>
+                        <a href="quiz.html" class="btn btn-outline btn-lg">Test Knowledge (15 MCQs)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Semantic Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-brand" style="margin-bottom: 0.75rem;">
+                        <div class="brand-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.11v4.71c0 4.54-3.14 8.78-7 9.87-3.86-1.09-7-5.33-7-9.87V6.29l7-3.11z"/>
+                            </svg>
+                        </div>
+                        <div class="brand-text">Cyber<span>Safe</span></div>
+                    </div>
+                    <p>An interactive educational platform empowering students to understand cyber threats, detect sophisticated phishing indicators, and develop healthy digital defense habits.</p>
+                    <p style="font-size: 0.8rem; color: #64748b; margin-top: 0.75rem;">
+                        ⚠️ <strong>Educational Sandbox:</strong> All phishing examples and domains are strictly fictional and intended exclusively for benign defensive instruction.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Learning Modules</h4>
+                    <ul>
+                        <li><a href="learn.html#topic-phishing">Phishing Attacks</a></li>
+                        <li><a href="learn.html#topic-malware">Malware &amp; Ransomware</a></li>
+                        <li><a href="learn.html#topic-passwords">Password Hygiene</a></li>
+                        <li><a href="learn.html#topic-social-eng">Social Engineering</a></li>
+                        <li><a href="learn.html#topic-safe-browsing">Public Wi-Fi Safety</a></li>
+                        <li><a href="learn.html#topic-mfa">Multi-Factor Auth (MFA)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Interactive Tools</h4>
+                    <ul>
+                        <li><a href="simulator.html">Phishing Simulator</a></li>
+                        <li><a href="quiz.html">15-Question Cyber Quiz</a></li>
+                        <li><a href="dashboard.html">Student Dashboard</a></li>
+                        <li><a href="feedback.html">Submit Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 CyberSafe Project. College Web Programming &amp; Cybersecurity Portal.</div>
+                <div>Built with <strong>HTML5 &bull; CSS3 &bull; Vanilla JavaScript</strong></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cybersecurity Knowledge Center covering phishing, malware, passwords, social engineering, Wi-Fi safety, and MFA.">
+    <title>Learning Center — Cybersecurity Awareness | CyberSafe</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Accessible Navigation Bar -->
+    <header class="navbar" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand" aria-label="CyberSafe Home">
+                <div class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.11v4.71c0 4.54-3.14 8.78-7 9.87-3.86-1.09-7-5.33-7-9.87V6.29l7-3.11zM11 7h2v6h-2V7zm0 8h2v2h-2v-2z"/>
+                    </svg>
+                </div>
+                <div class="brand-text">Cyber<span>Safe</span></div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav role="navigation" aria-label="Primary Navigation">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="learn.html" class="nav-link active">Learning Center</a></li>
+                    <li><a href="simulator.html" class="nav-link">Phishing Simulator</a></li>
+                    <li><a href="quiz.html" class="nav-link">Cyber Quiz</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="nav-user-pill">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>Student Explorer</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" id="mainContent" role="main">
+        <div class="container">
+            <!-- Header Summary -->
+            <div style="margin-bottom: 2.5rem; text-align: center;">
+                <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">Curriculum</span>
+                <h1>Cybersecurity Knowledge Center</h1>
+                <p class="lead" style="max-width: 720px; margin: 0 auto;">
+                    Master these six foundational domains. Each module includes theoretical fundamentals, realistic scenario examples, key warning signs, and defensive prevention protocols.
+                </p>
+
+                <!-- Dynamic Learning Progress Bar -->
+                <div style="max-width: 500px; margin: 1.75rem auto 0 auto;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-muted);">
+                        <span>Your Completion Progress</span>
+                        <span id="progressCounterText">0 of 6 Completed</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="learnProgressBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topics Grid -->
+            <div class="topics-grid">
+                <!-- Topic 1: Phishing -->
+                <article class="card topic-card" id="topic-phishing" data-slug="phishing">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon" style="font-size: 1.6rem;">🎣</div>
+                            <span class="badge badge-red">Social Exploits</span>
+                        </div>
+                        <div class="topic-meta"><span>Module #1</span> &bull; <span>5 min read</span></div>
+                        <h3>Phishing Attacks &amp; Email Spoofing</h3>
+                        <p>Deceptive communications masquerading as trustworthy entities to harvest confidential student credentials and financial details.</p>
+                    </div>
+                    <div class="topic-actions">
+                        <button type="button" class="btn btn-outline btn-sm btn-open-modal" data-target="modal-phishing">Read Full Guide &rarr;</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="phishing">Mark as Done</button>
+                    </div>
+                </article>
+
+                <!-- Topic 2: Malware -->
+                <article class="card topic-card" id="topic-malware" data-slug="malware">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon amber" style="font-size: 1.6rem;">🦠</div>
+                            <span class="badge badge-amber">System Security</span>
+                        </div>
+                        <div class="topic-meta"><span>Module #2</span> &bull; <span>6 min read</span></div>
+                        <h3>Malware &amp; Ransomware Defense</h3>
+                        <p>Hostile software designed to infiltrate systems, extract source code, record keystrokes, and lock personal project files for ransom.</p>
+                    </div>
+                    <div class="topic-actions">
+                        <button type="button" class="btn btn-outline btn-sm btn-open-modal" data-target="modal-malware">Read Full Guide &rarr;</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="malware">Mark as Done</button>
+                    </div>
+                </article>
+
+                <!-- Topic 3: Passwords -->
+                <article class="card topic-card" id="topic-passwords" data-slug="passwords">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon green" style="font-size: 1.6rem;">🔑</div>
+                            <span class="badge badge-green">Access Control</span>
+                        </div>
+                        <div class="topic-meta"><span>Module #3</span> &bull; <span>5 min read</span></div>
+                        <h3>Password Hygiene &amp; Passkeys</h3>
+                        <p>Understanding password entropy, defeating brute-force and credential stuffing attacks, and adopting modern password managers.</p>
+                    </div>
+                    <div class="topic-actions">
+                        <button type="button" class="btn btn-outline btn-sm btn-open-modal" data-target="modal-passwords">Read Full Guide &rarr;</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="passwords">Mark as Done</button>
+                    </div>
+                </article>
+
+                <!-- Topic 4: Social Engineering -->
+                <article class="card topic-card" id="topic-social-eng" data-slug="social-eng">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon cyan" style="font-size: 1.6rem;">🎭</div>
+                            <span class="badge badge-cyan">Human Factors</span>
+                        </div>
+                        <div class="topic-meta"><span>Module #4</span> &bull; <span>6 min read</span></div>
+                        <h3>Social Engineering &amp; Psychological Traps</h3>
+                        <p>Techniques used by adversaries to exploit human trust, politeness, fear, and curiosity to bypass digital defenses.</p>
+                    </div>
+                    <div class="topic-actions">
+                        <button type="button" class="btn btn-outline btn-sm btn-open-modal" data-target="modal-social-eng">Read Full Guide &rarr;</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="social-eng">Mark as Done</button>
+                    </div>
+                </article>
+
+                <!-- Topic 5: Safe Browsing -->
+                <article class="card topic-card" id="topic-safe-browsing" data-slug="safe-browsing">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon amber" style="font-size: 1.6rem;">📡</div>
+                            <span class="badge badge-amber">Network Defense</span>
+                        </div>
+                        <div class="topic-meta"><span>Module #5</span> &bull; <span>5 min read</span></div>
+                        <h3>Safe Browsing &amp; Public Wi-Fi Risks</h3>
+                        <p>Understanding Man-in-the-Middle (MitM) attacks, rogue access points, SSL/TLS certificates, and defensive hygiene in cafes and airports.</p>
+                    </div>
+                    <div class="topic-actions">
+                        <button type="button" class="btn btn-outline btn-sm btn-open-modal" data-target="modal-safe-browsing">Read Full Guide &rarr;</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="safe-browsing">Mark as Done</button>
+                    </div>
+                </article>
+
+                <!-- Topic 6: MFA -->
+                <article class="card topic-card" id="topic-mfa" data-slug="mfa">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-icon green" style="font-size: 1.6rem;">🛡️</div>
+                            <span class="badge badge-green">Authentication</span>
+                        </div>
+                        <div class="topic-meta"><span>Module #6</span> &bull; <span>5 min read</span></div>
+                        <h3>Multi-Factor Authentication (MFA)</h3>
+                        <p>Why passwords alone are insufficient, exploring factors of authentication, and ranking Authenticator apps versus SMS OTPs.</p>
+                    </div>
+                    <div class="topic-actions">
+                        <button type="button" class="btn btn-outline btn-sm btn-open-modal" data-target="modal-mfa">Read Full Guide &rarr;</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="mfa">Mark as Done</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Modal 1: Phishing -->
+            <div class="learn-modal" id="modal-phishing" role="dialog" aria-modal="true">
+                <div class="learn-modal-content">
+                    <button type="button" class="learn-modal-close" aria-label="Close dialog">&times;</button>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 2rem;">🎣</span>
+                        <div>
+                            <span class="badge badge-red">Social Exploits</span>
+                            <h2>Phishing Attacks &amp; Email Spoofing</h2>
+                        </div>
+                    </div>
+                    <h4 style="color: var(--accent-cyan); margin-top: 1.5rem;">1. Technical Overview</h4>
+                    <p>Phishing is a cyber attack where threat actors impersonate legitimate institutions—such as college IT departments, banks, or academic portals—to deceive victims into exposing private data like passwords, OTPs, or credit card numbers.</p>
+                    <div class="edu-callout">
+                        <h5>📌 Realistic Campus Scenario:</h5>
+                        <p>A student receives an email from "admin@univ-portal-support.com" warning that their exam registration access is suspended due to incomplete verification. The link leads to a lookalike domain "univ-portal-login.net/auth".</p>
+                    </div>
+                    <h4 style="color: var(--accent-amber); margin-top: 1.5rem;">⚠️ Key Warning Signs &amp; Red Flags</h4>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.25rem;">
+                        <li>Artificial Urgency: Demands immediate action with threats of account suspension.</li>
+                        <li>Lookalike Domains: Sender address slightly misspells genuine organization domain.</li>
+                        <li>Mismatched URLs: Displayed link text does not match the actual destination when hovered over.</li>
+                    </ul>
+                    <h4 style="color: var(--accent-green); margin-top: 1.5rem;">🛡️ Defensive Prevention Tips</h4>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.75rem;">
+                        <li>Always inspect the complete sender email address, not just the display name.</li>
+                        <li>Hover over links before clicking to check the preview URL.</li>
+                        <li>Navigate independently: Type official URLs directly into your browser.</li>
+                    </ul>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+                        <button type="button" class="btn btn-outline btn-close-modal">Close</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="phishing">Mark as Done</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal 2: Malware -->
+            <div class="learn-modal" id="modal-malware" role="dialog" aria-modal="true">
+                <div class="learn-modal-content">
+                    <button type="button" class="learn-modal-close" aria-label="Close dialog">&times;</button>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 2rem;">🦠</span>
+                        <div>
+                            <span class="badge badge-amber">System Security</span>
+                            <h2>Malware &amp; Ransomware Defense</h2>
+                        </div>
+                    </div>
+                    <h4 style="color: var(--accent-cyan); margin-top: 1.5rem;">1. Technical Overview</h4>
+                    <p>Malware refers to any software designed to exploit, damage, or disable systems. Ransomware uses strong mathematical encryption (AES/RSA) to lock personal project files and documents for extortion.</p>
+                    <div class="edu-callout">
+                        <h5>📌 Realistic Campus Scenario:</h5>
+                        <p>While looking for an engineering software tool or textbook, a student downloads a "setup_crack.zip" from an unofficial forum. Running the executable installs a stealth keylogger and begins encrypting project code.</p>
+                    </div>
+                    <h4 style="color: var(--accent-amber); margin-top: 1.5rem;">⚠️ Key Warning Signs</h4>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.25rem;">
+                        <li>Sluggish System Performance: High CPU or RAM usage when idle.</li>
+                        <li>Disguised double file extensions like .pdf.exe or .docx.scr.</li>
+                        <li>Antivirus or Windows Defender mysteriously disabled.</li>
+                    </ul>
+                    <h4 style="color: var(--accent-green); margin-top: 1.5rem;">🛡️ Defensive Prevention Tips</h4>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.75rem;">
+                        <li>Download software only from official vendor websites and verified repositories.</li>
+                        <li>Maintain the 3-2-1 backup strategy: 3 copies, 2 different media, 1 offsite/cloud.</li>
+                        <li>Apply operating system and software patches promptly.</li>
+                    </ul>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+                        <button type="button" class="btn btn-outline btn-close-modal">Close</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="malware">Mark as Done</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal 3: Passwords -->
+            <div class="learn-modal" id="modal-passwords" role="dialog" aria-modal="true">
+                <div class="learn-modal-content">
+                    <button type="button" class="learn-modal-close" aria-label="Close dialog">&times;</button>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 2rem;">🔑</span>
+                        <div>
+                            <span class="badge badge-green">Access Control</span>
+                            <h2>Password Hygiene &amp; Passkeys</h2>
+                        </div>
+                    </div>
+                    <h4 style="color: var(--accent-cyan); margin-top: 1.5rem;">1. Technical Overview</h4>
+                    <p>Password length is the single most critical factor in password entropy. Weak and reused passwords allow attackers to execute Credential Stuffing—testing leaked passwords across hundreds of other platforms automatically.</p>
+                    <div class="edu-callout">
+                        <h5>📌 Realistic Campus Scenario:</h5>
+                        <p>A student uses "College2024!" on a gaming forum. When that forum is breached, botnets spray those stolen credentials against GitHub and university student portals.</p>
+                    </div>
+                    <h4 style="color: var(--accent-green); margin-top: 1.5rem;">🛡️ Defensive Prevention Tips</h4>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.75rem;">
+                        <li>Use long passphrases (e.g. "correct-horse-battery-staple") instead of short complex passwords.</li>
+                        <li>Use a dedicated password manager (Bitwarden, KeePass) to generate unique passwords.</li>
+                        <li>Never reuse passwords across academic, professional, and personal services.</li>
+                    </ul>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+                        <button type="button" class="btn btn-outline btn-close-modal">Close</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="passwords">Mark as Done</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal 4: Social Engineering -->
+            <div class="learn-modal" id="modal-social-eng" role="dialog" aria-modal="true">
+                <div class="learn-modal-content">
+                    <button type="button" class="learn-modal-close" aria-label="Close dialog">&times;</button>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 2rem;">🎭</span>
+                        <div>
+                            <span class="badge badge-cyan">Human Factors</span>
+                            <h2>Social Engineering &amp; Psychological Traps</h2>
+                        </div>
+                    </div>
+                    <h4 style="color: var(--accent-cyan); margin-top: 1.5rem;">1. Technical Overview</h4>
+                    <p>Social engineering exploits human cognitive vulnerabilities—politeness, urgency, curiosity, and fear of authority—to manipulate individuals into bypassing standard security protocols.</p>
+                    <div class="edu-callout">
+                        <h5>📌 Realistic Campus Scenario:</h5>
+                        <p>A caller rings the computer lab claiming to be from network operations troubleshooting a server outage and asks the lab assistant to share the administrative password over the phone.</p>
+                    </div>
+                    <h4 style="color: var(--accent-green); margin-top: 1.5rem;">🛡️ Defensive Prevention Tips</h4>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.75rem;">
+                        <li>Never plug in unknown USB drives found in public places (prevents BadUSB attacks).</li>
+                        <li>Verify requests through established, independent telephone and physical channels.</li>
+                        <li>Politeness should never override information security policy.</li>
+                    </ul>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+                        <button type="button" class="btn btn-outline btn-close-modal">Close</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="social-eng">Mark as Done</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal 5: Safe Browsing -->
+            <div class="learn-modal" id="modal-safe-browsing" role="dialog" aria-modal="true">
+                <div class="learn-modal-content">
+                    <button type="button" class="learn-modal-close" aria-label="Close dialog">&times;</button>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 2rem;">📡</span>
+                        <div>
+                            <span class="badge badge-amber">Network Defense</span>
+                            <h2>Safe Browsing &amp; Public Wi-Fi Risks</h2>
+                        </div>
+                    </div>
+                    <h4 style="color: var(--accent-cyan); margin-top: 1.5rem;">1. Technical Overview</h4>
+                    <p>Unencrypted public Wi-Fi networks in cafes, libraries, and airports transmit data packets over the air where eavesdroppers can perform Man-in-the-Middle (MitM) packet sniffing and session hijacking.</p>
+                    <div class="edu-callout">
+                        <h5>📌 Realistic Campus Scenario:</h5>
+                        <p>An attacker launches a rogue "Cafe_Free_WiFi" hotspot. A student connects, and the attacker captures cleartext traffic and hijacks unencrypted session cookies.</p>
+                    </div>
+                    <h4 style="color: var(--accent-green); margin-top: 1.5rem;">🛡️ Defensive Prevention Tips</h4>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.75rem;">
+                        <li>Use a trusted VPN to encrypt all device network traffic on public hotspots.</li>
+                        <li>Ensure connections use HTTPS with valid TLS certificates.</li>
+                        <li>Disable "Auto-connect to open Wi-Fi" on your devices.</li>
+                    </ul>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+                        <button type="button" class="btn btn-outline btn-close-modal">Close</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="safe-browsing">Mark as Done</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal 6: MFA -->
+            <div class="learn-modal" id="modal-mfa" role="dialog" aria-modal="true">
+                <div class="learn-modal-content">
+                    <button type="button" class="learn-modal-close" aria-label="Close dialog">&times;</button>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 2rem;">🛡️</span>
+                        <div>
+                            <span class="badge badge-green">Authentication</span>
+                            <h2>Multi-Factor Authentication (MFA)</h2>
+                        </div>
+                    </div>
+                    <h4 style="color: var(--accent-cyan); margin-top: 1.5rem;">1. Technical Overview</h4>
+                    <p>MFA requires users to present at least two distinct authentication factors: Something You Know (password), Something You Have (authenticator app/hardware token), or Something You Are (biometrics).</p>
+                    <div class="edu-callout">
+                        <h5>📌 Realistic Campus Scenario:</h5>
+                        <p>A student falls for a phishing email and enters their password. However, because MFA (TOTP) is enabled, the hacker cannot gain access without the physical 6-digit code rotating on the student's phone.</p>
+                    </div>
+                    <h4 style="color: var(--accent-green); margin-top: 1.5rem;">🛡️ Defensive Prevention Tips</h4>
+                    <ul style="padding-left: 1.25rem; margin-bottom: 1.75rem;">
+                        <li>Enable MFA on email, GitHub, college portals, and banking services.</li>
+                        <li>Prefer TOTP Authenticator Apps (Google Authenticator) over SMS to avoid SIM swapping.</li>
+                        <li>Never approve unprompted push notifications (prevents MFA fatigue attacks).</li>
+                    </ul>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+                        <button type="button" class="btn btn-outline btn-close-modal">Close</button>
+                        <button type="button" class="btn btn-sm btn-toggle-complete btn-outline" data-slug="mfa">Mark as Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div>&copy; 2026 CyberSafe Project. College Web Programming &amp; Cybersecurity Portal.</div>
+                <div>Built with <strong>HTML5 &bull; CSS3 &bull; Vanilla JavaScript</strong></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/learn.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student Cybersecurity Dashboard: Track your completed modules, quiz history, and security readiness score.">
+    <title>Student Dashboard — Progress &amp; Scores | CyberSafe</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="navbar" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand" aria-label="CyberSafe Home">
+                <div class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.11v4.71c0 4.54-3.14 8.78-7 9.87-3.86-1.09-7-5.33-7-9.87V6.29l7-3.11zM11 7h2v6h-2V7zm0 8h2v2h-2v-2z"/>
+                    </svg>
+                </div>
+                <div class="brand-text">Cyber<span>Safe</span></div>
+            </a>
+
+            <nav role="navigation" aria-label="Primary Navigation">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="learn.html" class="nav-link">Learning Center</a></li>
+                    <li><a href="simulator.html" class="nav-link">Phishing Simulator</a></li>
+                    <li><a href="quiz.html" class="nav-link">Cyber Quiz</a></li>
+                    <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                    <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="nav-user-pill">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>Student Explorer</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" id="mainContent" role="main">
+        <div class="container">
+            <!-- Student Profile Header Card -->
+            <div class="dashboard-profile-card">
+                <div class="avatar-shield" aria-hidden="true">🛡️</div>
+                <div style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.25rem;">
+                        <h2 style="margin-bottom: 0;" id="dashStudentName">Student Explorer</h2>
+                        <span class="badge badge-cyan" id="dashReadinessBadge">Security Practitioner</span>
+                        <span class="badge badge-green">Active Session</span>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                        Overall Security Readiness Level: <strong id="dashReadinessPercentText">50%</strong>
+                    </p>
+                    <div class="progress-bar-bg" style="max-width: 400px; height: 8px;">
+                        <div class="progress-bar-fill" id="dashReadinessProgressBar" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <a href="quiz.html" class="btn btn-primary btn-sm">Take Assessment</a>
+                </div>
+            </div>
+
+            <!-- 4 Metrics Cards -->
+            <div class="stats-grid" style="margin-bottom: 2.5rem;">
+                <div class="stat-card">
+                    <div class="stat-value cyan" id="statCompletedModules">0 / 6</div>
+                    <div class="stat-label">Modules Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value green" id="statBestQuiz">--%</div>
+                    <div class="stat-label">Best Quiz Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value amber" id="statQuizAttempts">0</div>
+                    <div class="stat-label">Quiz Attempts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value cyan" id="statSimAccuracy">100%</div>
+                    <div class="stat-label">Phishing Accuracy</div>
+                </div>
+            </div>
+
+            <!-- Two-Column Layout -->
+            <div class="dashboard-grid">
+                <div>
+                    <!-- Quiz History Card -->
+                    <div class="card" style="margin-bottom: 2rem;">
+                        <div class="card-header">
+                            <h3>Quiz Assessment History</h3>
+                            <a href="quiz.html" class="btn btn-outline btn-sm">Take New Quiz</a>
+                        </div>
+                        <div id="quizHistoryContainer">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Curriculum Progress Matrix -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Curriculum Completion Status</h3>
+                            <a href="learn.html" class="btn btn-outline btn-sm">Open Learning Center</a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.85rem;" id="curriculumList">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Recommendation -->
+                <div>
+                    <div class="card card-glow-cyan" style="margin-bottom: 1.75rem;">
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 0.75rem;">🎯 Recommended Action</h4>
+                        <div id="recommendedActionBox">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="color: var(--accent-green); margin-bottom: 0.75rem;">💡 Viva Knowledge Capsule</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
+                            <strong>Q: Why is Prepared Statement SQL used in CyberSafe?</strong><br>
+                            <span style="color: var(--text-muted);">
+                                Prepared statements separate the SQL query logic from user-submitted data. Parameters are transmitted independently, preventing malicious input from being executed as SQL syntax.
+                            </span>
+                        </p>
+                        <div style="font-size: 0.8rem; color: var(--accent-cyan); text-align: right;">
+                            <a href="learn.html">Review Guides &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div>&copy; 2026 CyberSafe Project. College Web Programming &amp; Cybersecurity Portal.</div>
+                <div>Built with <strong>HTML5 &bull; CSS3 &bull; Vanilla JavaScript</strong></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const allTopics = [
+                { slug: 'phishing', title: 'Phishing Attacks & Email Spoofing', category: 'Social Exploits', icon: '🎣' },
+                { slug: 'malware', title: 'Malware & Ransomware Defense', category: 'System Security', icon: '🦠' },
+                { slug: 'passwords', title: 'Password Hygiene & Passkeys', category: 'Access Control', icon: '🔑' },
+                { slug: 'social-eng', title: 'Social Engineering', category: 'Human Factors', icon: '🎭' },
+                { slug: 'safe-browsing', title: 'Safe Browsing & Public Wi-Fi', category: 'Network Defense', icon: '📡' },
+                { slug: 'mfa', title: 'Multi-Factor Authentication', category: 'Authentication', icon: '🛡️' }
+            ];
+
+            // 1. Read completed topics
+            let completedSlugs = [];
+            try {
+                const stored = localStorage.getItem('cybersafe_completed_topics');
+                if (stored) completedSlugs = JSON.parse(stored);
+            } catch (e) {}
+
+            document.getElementById('statCompletedModules').textContent = `${completedSlugs.length} / 6`;
+
+            // 2. Read Quiz Attempts
+            let attempts = [];
+            try {
+                const storedAttempts = localStorage.getItem('cybersafe_quiz_history');
+                if (storedAttempts) attempts = JSON.parse(storedAttempts);
+            } catch (e) {}
+
+            document.getElementById('statQuizAttempts').textContent = attempts.length;
+
+            let bestScore = 0;
+            if (attempts.length > 0) {
+                const pcts = attempts.map(a => a.percentage);
+                bestScore = Math.max(...pcts);
+                document.getElementById('statBestQuiz').textContent = `${bestScore}%`;
+            }
+
+            // Readiness Score Math
+            const modulePts = (completedSlugs.length / 6) * 50;
+            const quizPts = (bestScore / 100) * 50;
+            const overallReadiness = Math.round(modulePts + quizPts);
+
+            document.getElementById('dashReadinessPercentText').textContent = `${overallReadiness}%`;
+            document.getElementById('dashReadinessProgressBar').style.width = `${overallReadiness}%`;
+
+            const badge = document.getElementById('dashReadinessBadge');
+            if (overallReadiness >= 80) {
+                badge.className = 'badge badge-green';
+                badge.textContent = 'Master Cyber Guardian';
+            } else if (overallReadiness >= 50) {
+                badge.className = 'badge badge-cyan';
+                badge.textContent = 'Security Practitioner';
+            } else {
+                badge.className = 'badge badge-amber';
+                badge.textContent = 'Developing Defender';
+            }
+
+            // Render Quiz History Table or Empty State
+            const historyContainer = document.getElementById('quizHistoryContainer');
+            if (attempts.length === 0) {
+                historyContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon" aria-hidden="true">📝</div>
+                        <h4>No Quiz Attempts Recorded Yet</h4>
+                        <p>Complete the 15-question cybersecurity assessment to track your scores.</p>
+                        <a href="quiz.html" class="btn btn-primary btn-sm" style="margin-top: 0.5rem;">Start Assessment Now</a>
+                    </div>
+                `;
+            } else {
+                let rowsHtml = '';
+                attempts.slice().reverse().forEach((att, i) => {
+                    const isPass = att.percentage >= 70;
+                    rowsHtml += `
+                        <tr>
+                            <td>#${attempts.length - i}</td>
+                            <td><strong>${att.score}</strong> / ${att.total}</td>
+                            <td><strong style="color: ${isPass ? 'var(--accent-green)' : 'var(--accent-red)'};">${att.percentage}%</strong></td>
+                            <td><span class="badge ${isPass ? 'badge-green' : 'badge-red'}">${isPass ? 'Passed' : 'Review Needed'}</span></td>
+                            <td style="color: var(--text-muted); font-size: 0.85rem;">${att.date}</td>
+                        </tr>
+                    `;
+                });
+
+                historyContainer.innerHTML = `
+                    <div class="dashboard-table-wrap">
+                        <table class="cyber-table">
+                            <thead>
+                                <tr>
+                                    <th>Attempt</th>
+                                    <th>Score</th>
+                                    <th>Percentage</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>${rowsHtml}</tbody>
+                        </table>
+                    </div>
+                `;
+            }
+
+            // Render Curriculum Checklist
+            const curriculumList = document.getElementById('curriculumList');
+            curriculumList.innerHTML = '';
+            let nextUnfinished = null;
+
+            allTopics.forEach(t => {
+                const isDone = completedSlugs.includes(t.slug);
+                if (!isDone && !nextUnfinished) nextUnfinished = t;
+
+                curriculumList.innerHTML += `
+                    <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; background-color: var(--bg-input); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.25rem;">${t.icon}</span>
+                            <div>
+                                <strong style="color: var(--text-primary); font-size: 0.95rem;">${t.title}</strong>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">${t.category}</div>
+                            </div>
+                        </div>
+                        <div>
+                            ${isDone ? '<span class="badge badge-green">✓ Completed</span>' : `<a href="learn.html#topic-${t.slug}" class="btn btn-outline btn-sm">Study</a>`}
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Recommendation Box
+            const recBox = document.getElementById('recommendedActionBox');
+            if (nextUnfinished) {
+                recBox.innerHTML = `
+                    <p style="font-size: 0.925rem; margin-bottom: 1rem;">Strengthen your defenses by studying our recommended module:</p>
+                    <div style="padding: 1rem; background-color: var(--bg-input); border-radius: var(--radius-md); margin-bottom: 1rem;">
+                        <strong style="color: var(--text-primary);">${nextUnfinished.icon} ${nextUnfinished.title}</strong>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Category: ${nextUnfinished.category}</div>
+                    </div>
+                    <a href="learn.html#topic-${nextUnfinished.slug}" class="btn btn-primary" style="width: 100%;">Continue Learning &rarr;</a>
+                `;
+            } else if (attempts.length === 0) {
+                recBox.innerHTML = `
+                    <p style="font-size: 0.925rem; margin-bottom: 1rem;">All topics completed! Put your skills to the test with our 15-question quiz.</p>
+                    <a href="quiz.html" class="btn btn-success" style="width: 100%;">Launch Cyber Quiz &rarr;</a>
+                `;
+            } else {
+                recBox.innerHTML = `
+                    <p style="font-size: 0.925rem; color: var(--accent-green); margin-bottom: 1rem;">🎉 Outstanding work! All topics reviewed. Try practicing with the Phishing Simulator!</p>
+                    <a href="simulator.html" class="btn btn-primary" style="width: 100%;">Inspect Phishing Scenarios &rarr;</a>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
