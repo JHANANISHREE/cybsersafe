@@ -1,0 +1,9 @@
+# Ignore local environment credentials with passwords
+includes/config.php
+
+# OS metadata
+Thumbs.db
+.DS_Store
+
+# Temporary log files
+*.log
